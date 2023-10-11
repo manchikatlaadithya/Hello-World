@@ -1,0 +1,166 @@
+show dbs
+admin   40.00 KiB
+config  96.00 KiB
+local   72.00 KiB
+use cricket
+switched to db cricket
+
+//I have sport as a cricket
+//Data is completely assumption based on my imagination 
+
+db.createCollection("ipl")
+{ ok: 1 }
+db.ipl.insertMany([
+
+	{
+		"Name":"virat kohli",
+		"score":1789,
+		"fours":89,
+		"sixes":25,
+		"Highest":189
+
+	},
+	
+	{
+		"Name":"ab deviliars",
+		"score":1289,
+		"fours":47,
+		"sixes":34,
+		"Highest":102
+
+	},
+
+	{
+		"Name":"padikal",
+		"score":893,
+		"fours":39,
+		"sixes":23,
+		"Highest":78
+
+	},
+
+	
+	{
+		"Name":"gaikawad",
+		"score":783,
+		"fours":28,
+		"sixes":21,
+		"Highest":89
+
+	},
+	
+	{
+		"Name":"yuvraj singh",
+		"score":1034,
+		"fours":21,
+		"sixes":29,
+		"Highest":67
+
+	},
+
+	{
+		"Name":"hanuman vihari",
+		"score":179,
+		"fours":4,
+		"sixes":9,
+		"Highest":42
+
+	},
+
+	
+	{
+		"Name":"rahane",
+		"score":819,
+		"fours":42,
+		"sixes":12,
+		"Highest":79
+
+	},
+	
+	{
+		"Name":"suresh raina",
+		"score":784,
+		"fours":43,
+		"sixes":19,
+		"Highest":83
+
+	},
+
+	{
+		"Name":"kl rahul",
+		"score":984,
+		"fours":48,
+		"sixes":24,
+		"Highest":113
+
+	}
+])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("6526ed119a25ea674c275882"),
+    '1': ObjectId("6526ed119a25ea674c275883"),
+    '2': ObjectId("6526ed119a25ea674c275884"),
+    '3': ObjectId("6526ed119a25ea674c275885"),
+    '4': ObjectId("6526ed119a25ea674c275886"),
+    '5': ObjectId("6526ed119a25ea674c275887"),
+    '6': ObjectId("6526ed119a25ea674c275888"),
+    '7': ObjectId("6526ed119a25ea674c275889"),
+    '8': ObjectId("6526ed119a25ea674c27588a")
+  }
+}
+db.ipl.updateOne({"Name":"yuvraj singh"},{$set:{"score":1198}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.ipl.find({"Name":"yuvraj singh"})
+{
+  _id: ObjectId("6526ed119a25ea674c275886"),
+  Name: 'yuvraj singh',
+  score: 1198,
+  fours: 21,
+  sixes: 29,
+  Highest: 67
+}
+db.ipl.find({"Name":"rahane"})
+{
+  _id: ObjectId("6526ed119a25ea674c275888"),
+  Name: 'rahane',
+  score: 819,
+  fours: 42,
+  sixes: 12,
+  Highest: 79
+}
+db.ipl.find().sort({"sixes":1}).limit(1)
+{
+  _id: ObjectId("6526ed119a25ea674c275887"),
+  Name: 'hanuman vihari',
+  score: 179,
+  fours: 4,
+  sixes: 9,
+  Highest: 42
+}
+db.ipl.find().sort({"fours":-1}).limit(1)
+{
+  _id: ObjectId("6526ed119a25ea674c275882"),
+  Name: 'virat kohli',
+  score: 1789,
+  fours: 89,
+  sixes: 25,
+  Highest: 189
+}
+db.ipl.find().sort({"Highest":-1}).limit(1)
+{
+  _id: ObjectId("6526ed119a25ea674c275882"),
+  Name: 'virat kohli',
+  score: 1789,
+  fours: 89,
+  sixes: 25,
+  Highest: 189
+}
+cricket
+
